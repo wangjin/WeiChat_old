@@ -1,4 +1,4 @@
-package tk.jimmywang.weichat.controller;
+package tk.jimmywang.weichat.entity.message.response;
 
 import java.io.Serializable;
 
