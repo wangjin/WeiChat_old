@@ -12,9 +12,9 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import tk.jimmywang.weichat.controller.NewsMessage;
 import tk.jimmywang.weichat.entity.message.response.Article;
 import tk.jimmywang.weichat.entity.message.response.MusicMessage;
+import tk.jimmywang.weichat.entity.message.response.NewsMessage;
 import tk.jimmywang.weichat.entity.message.response.TextMessage;
 
 import com.thoughtworks.xstream.XStream;

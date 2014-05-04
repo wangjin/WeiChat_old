@@ -1,9 +1,6 @@
-package tk.jimmywang.weichat.controller;
+package tk.jimmywang.weichat.entity.message.response;
 
 import java.util.List;
-
-import tk.jimmywang.weichat.entity.message.response.Article;
-import tk.jimmywang.weichat.entity.message.response.BaseMessage;
 
 public class NewsMessage extends BaseMessage {
 
