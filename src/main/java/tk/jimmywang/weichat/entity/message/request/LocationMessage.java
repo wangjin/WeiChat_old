@@ -4,13 +4,13 @@ public class LocationMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 4378720389536273921L;
 
-	// 地理位置维度
+	// 鍦扮悊浣嶇疆缁村害
 	private String location_X;
-	// 地理位置经度
+	// 鍦扮悊浣嶇疆缁忓害
 	private String location_Y;
-	// 地图缩放大小
+	// 鍦板浘缂╂斁澶у皬
 	private String scale;
-	// 地理位置信息
+	// 鍦扮悊浣嶇疆淇℃伅
 	private String label;
 
 	public String getLocation_X() {

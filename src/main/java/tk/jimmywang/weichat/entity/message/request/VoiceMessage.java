@@ -4,9 +4,9 @@ public class VoiceMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 7796756025724650569L;
 
-	// Ã½ÌåID
+	// åª’ä½“ID
 	private String MediaId;
-	// ÓïÒô¸ñÊ½
+	// è¯­éŸ³æ ¼å¼
 	private String Format;
 
 	public String getMediaId() {

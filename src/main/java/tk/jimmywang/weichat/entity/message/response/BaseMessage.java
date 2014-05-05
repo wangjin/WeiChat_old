@@ -6,15 +6,15 @@ public class BaseMessage implements Serializable {
 
 	private static final long serialVersionUID = 2399295218989649915L;
 
-	// ½ÓÊÕ·½ÕÊºÅ£¨ÊÕµ½µÄOpenID£©
+	// æ¥æ”¶æ–¹å¸å·ï¼ˆæ”¶åˆ°çš„OpenIDï¼‰
 	private String toUserName;
-	// ¿ª·¢ÕßÎ¢ĞÅºÅ
+	// å¼€å‘è€…å¾®ä¿¡å·
 	private String fromUserName;
-	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
+	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
 	private long createTime;
-	// ÏûÏ¢ÀàĞÍ£¨text/music/news£©
+	// æ¶ˆæ¯ç±»å‹ï¼ˆtext/music/newsï¼‰
 	private String msgType;
-	// Î»0x0001±»±êÖ¾Ê±£¬ĞÇ±ê¸ÕÊÕµ½µÄÏûÏ¢
+	// ä½0x0001è¢«æ ‡å¿—æ—¶ï¼Œæ˜Ÿæ ‡åˆšæ”¶åˆ°çš„æ¶ˆæ¯
 	private int funcFlag;
 
 	public String getToUserName() {

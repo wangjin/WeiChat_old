@@ -4,11 +4,11 @@ public class LinkMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 8307732875461106833L;
 
-	// 消息标题
+	// 娑堟伅鏍囬
 	private String title;
-	// 消息描述
+	// 娑堟伅鎻忚堪
 	private String description;
-	// 消息链接
+	// 娑堟伅閾炬帴
 	private String url;
 
 	public String getTitle() {
