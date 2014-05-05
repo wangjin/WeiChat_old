@@ -6,16 +6,16 @@ public class NewsMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 4642635937018632773L;
 	
-	private int aritleCount;
+	private int articleCount;
 	
 	private List<Article> articles;
 
-	public int getAritleCount() {
-		return aritleCount;
+	public int getArticleCount() {
+		return articleCount;
 	}
 
-	public void setAritleCount(int aritleCount) {
-		this.aritleCount = aritleCount;
+	public void setArticleCount(int articleCount) {
+		this.articleCount = articleCount;
 	}
 
 	public List<Article> getArticles() {

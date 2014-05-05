@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import tk.jimmywang.weichat.service.ProcessService;
 import tk.jimmywang.weichat.service.WeiChatService;
 import tk.jimmywang.weichat.util.SignUtil;
 
@@ -26,7 +27,7 @@ public class WeiChatApiController {
 
 	private Logger logger = LoggerFactory.getLogger(WeiChatApiController.class);
 
-	@RequestMapping(value = "weichatapi", method = RequestMethod.GET)
+	@RequestMapping(value = "/weichatapi", method = RequestMethod.GET)
 	public void APIGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		String signature = request.getParameter("signature");
@@ -47,13 +48,13 @@ public class WeiChatApiController {
 		writer = null;
 	}
 
-	@RequestMapping(value = "weichatapi", method = RequestMethod.POST)
+	@RequestMapping(value = "/weichatapi", method = RequestMethod.POST)
 	public void APIPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer = response.getWriter();
-		writer.print(weiChatService.processRequest(request));
+		writer.print(ProcessService.processRequest(request));
 		writer.close();
 		writer = null;
 	}

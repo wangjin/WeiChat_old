@@ -47,7 +47,12 @@ public class MessageUtil {
     /** 
      * 请求消息类型：图片 
      */  
-    public static final String REQUEST_MESSAGE_TYPE_IMAGE = "image";  
+    public static final String REQUEST_MESSAGE_TYPE_IMAGE = "image";
+    
+    /** 
+     * 请求消息类型：图文
+     */  
+    public static final String REQUEST_MESSAGE_TYPE_NEWS = "news";
   
     /** 
      * 请求消息类型：链接 
