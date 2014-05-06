@@ -1,8 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/tk/jimmywang/weichat/entity/message/request/BaseMessage.java=UTF-8
 encoding//src/main/java/tk/jimmywang/weichat/entity/message/request/LinkMessage.java=UTF-8
 encoding//src/main/java/tk/jimmywang/weichat/entity/message/request/LocationMessage.java=UTF-8
 encoding//src/main/java/tk/jimmywang/weichat/entity/message/request/VoiceMessage.java=UTF-8
 encoding//src/main/java/tk/jimmywang/weichat/entity/message/response/BaseMessage.java=UTF-8
-encoding/<project>=UTF-8
 separateDerivedEncodings=true
