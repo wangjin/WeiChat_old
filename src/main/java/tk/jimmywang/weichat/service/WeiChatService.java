@@ -15,20 +15,20 @@ public class WeiChatService {
 	 public String processRequest(HttpServletRequest request) {  
 	        String respMessage = null;  
 	        try {  
-	            // Ä¬ÈÏ·µ»ØµÄÎÄ±¾ÏûÏ¢ÄÚÈİ  
-	            String respContent = "ÇëÇó´¦ÀíÒì³££¬ÇëÉÔºò³¢ÊÔ£¡";  
+	            // é»˜è®¤è¿”å›çš„æ–‡æœ¬æ¶ˆæ¯å†…å®¹  
+	            String respContent = "è¯·æ±‚å¤„ç†å¼‚å¸¸ï¼Œè¯·ç¨å€™å°è¯•ï¼";  
 	  
-	            // xmlÇëÇó½âÎö  
+	            // xmlè¯·æ±‚è§£æ  
 	            Map<String, String> requestMap = MessageUtil.parseXml(request);  
 	  
-	            // ·¢ËÍ·½ÕÊºÅ£¨open_id£©  
+	            // å‘é€æ–¹å¸å·ï¼ˆopen_idï¼‰  
 	            String fromUserName = requestMap.get("FromUserName");  
-	            // ¹«ÖÚÕÊºÅ  
+	            // å…¬ä¼—å¸å·  
 	            String toUserName = requestMap.get("ToUserName");  
-	            // ÏûÏ¢ÀàĞÍ  
+	            // æ¶ˆæ¯ç±»å‹  
 	            String msgType = requestMap.get("MsgType");  
 	  
-	            // »Ø¸´ÎÄ±¾ÏûÏ¢  
+	            // å›å¤æ–‡æœ¬æ¶ˆæ¯  
 	            TextMessage textMessage = new TextMessage();  
 	            textMessage.setToUserName(fromUserName);  
 	            textMessage.setFromUserName(toUserName);  
@@ -36,41 +36,41 @@ public class WeiChatService {
 	            textMessage.setMsgType(MessageUtil.RESPONSE_MESSAGE_TYPE_TEXT);  
 	            textMessage.setFuncFlag(0);  
 	  
-	            // ÎÄ±¾ÏûÏ¢  
+	            // æ–‡æœ¬æ¶ˆæ¯  
 	            if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_TEXT)) {  
-	                respContent = "Äú·¢ËÍµÄÊÇÎÄ±¾ÏûÏ¢£¡";  
+	                respContent = "æ‚¨å‘é€çš„æ˜¯æ–‡æœ¬æ¶ˆæ¯ï¼";  
 	            }  
-	            // Í¼Æ¬ÏûÏ¢  
+	            // å›¾ç‰‡æ¶ˆæ¯  
 	            else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_IMAGE)) {  
-	                respContent = "Äú·¢ËÍµÄÊÇÍ¼Æ¬ÏûÏ¢£¡";  
+	                respContent = "æ‚¨å‘é€çš„æ˜¯å›¾ç‰‡æ¶ˆæ¯ï¼";  
 	            }  
-	            // µØÀíÎ»ÖÃÏûÏ¢  
+	            // åœ°ç†ä½ç½®æ¶ˆæ¯  
 	            else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_LOCATION)) {  
-	                respContent = "Äú·¢ËÍµÄÊÇµØÀíÎ»ÖÃÏûÏ¢£¡";  
+	                respContent = "æ‚¨å‘é€çš„æ˜¯åœ°ç†ä½ç½®æ¶ˆæ¯ï¼";  
 	            }  
-	            // Á´½ÓÏûÏ¢  
+	            // é“¾æ¥æ¶ˆæ¯  
 	            else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_LINK)) {  
-	                respContent = "Äú·¢ËÍµÄÊÇÁ´½ÓÏûÏ¢£¡";  
+	                respContent = "æ‚¨å‘é€çš„æ˜¯é“¾æ¥æ¶ˆæ¯ï¼";  
 	            }  
-	            // ÒôÆµÏûÏ¢  
+	            // éŸ³é¢‘æ¶ˆæ¯  
 	            else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_VOICE)) {  
-	                respContent = "Äú·¢ËÍµÄÊÇÒôÆµÏûÏ¢£¡";  
+	                respContent = "æ‚¨å‘é€çš„æ˜¯éŸ³é¢‘æ¶ˆæ¯ï¼";  
 	            }  
-	            // ÊÂ¼şÍÆËÍ  
+	            // äº‹ä»¶æ¨é€  
 	            else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_EVENT)) {  
-	                // ÊÂ¼şÀàĞÍ  
+	                // äº‹ä»¶ç±»å‹  
 	                String eventType = requestMap.get("Event");  
-	                // ¶©ÔÄ  
+	                // è®¢é˜…  
 	                if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {  
-	                    respContent = "Ğ»Ğ»ÄúµÄ¹Ø×¢£¡";  
+	                    respContent = "è°¢è°¢æ‚¨çš„å…³æ³¨ï¼";  
 	                }  
-	                // È¡Ïû¶©ÔÄ  
+	                // å–æ¶ˆè®¢é˜…  
 	                else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
-	                    // TODO È¡Ïû¶©ÔÄºóÓÃ»§ÔÙÊÕ²»µ½¹«ÖÚºÅ·¢ËÍµÄÏûÏ¢£¬Òò´Ë²»ĞèÒª»Ø¸´ÏûÏ¢  
+	                    // TODO å–æ¶ˆè®¢é˜…åç”¨æˆ·å†æ”¶ä¸åˆ°å…¬ä¼—å·å‘é€çš„æ¶ˆæ¯ï¼Œå› æ­¤ä¸éœ€è¦å›å¤æ¶ˆæ¯  
 	                }  
-	                // ×Ô¶¨Òå²Ëµ¥µã»÷ÊÂ¼ş  
+	                // è‡ªå®šä¹‰èœå•ç‚¹å‡»äº‹ä»¶  
 	                else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {  
-	                    // TODO ×Ô¶¨Òå²Ëµ¥È¨Ã»ÓĞ¿ª·Å£¬Ôİ²»´¦Àí¸ÃÀàÏûÏ¢  
+	                    // TODO è‡ªå®šä¹‰èœå•æƒæ²¡æœ‰å¼€æ”¾ï¼Œæš‚ä¸å¤„ç†è¯¥ç±»æ¶ˆæ¯  
 	                }  
 	            }  
 	  

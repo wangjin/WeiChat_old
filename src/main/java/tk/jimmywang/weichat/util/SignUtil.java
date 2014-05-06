@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class SignUtil {
 
 	/**
-	 * ÑéÖ¤Ç©Ãû
+	 * éªŒè¯ç­¾å
 	 * 
 	 * @param signature
 	 * @param timestamp
@@ -17,7 +17,7 @@ public class SignUtil {
 	public static boolean checkSignature(String token, String signature, String timestamp,
 			String nonce) {
 		String[] arr = new String[] { token, timestamp, nonce };
-		// ½«token¡¢timestamp¡¢nonceÈı¸ö²ÎÊı½øĞĞ×ÖµäĞòÅÅĞò
+		// å°†tokenã€timestampã€nonceä¸‰ä¸ªå‚æ•°è¿›è¡Œå­—å…¸åºæ’åº
 		Arrays.sort(arr);
 		StringBuilder content = new StringBuilder();
 		for (int i = 0; i < arr.length; i++) {
@@ -28,7 +28,7 @@ public class SignUtil {
 
 		try {
 			md = MessageDigest.getInstance("SHA-1");
-			// ½«Èı¸ö²ÎÊı×Ö·û´®Æ´½Ó³ÉÒ»¸ö×Ö·û´®½øĞĞsha1¼ÓÃÜ
+			// å°†ä¸‰ä¸ªå‚æ•°å­—ç¬¦ä¸²æ‹¼æ¥æˆä¸€ä¸ªå­—ç¬¦ä¸²è¿›è¡Œsha1åŠ å¯†
 			byte[] digest = md.digest(content.toString().getBytes());
 			tmpStr = byteToStr(digest);
 		} catch (NoSuchAlgorithmException e) {
@@ -36,12 +36,12 @@ public class SignUtil {
 		}
 
 		content = null;
-		// ½«sha1¼ÓÃÜºóµÄ×Ö·û´®¿ÉÓësignature¶Ô±È£¬±êÊ¶¸ÃÇëÇóÀ´Ô´ÓÚÎ¢ĞÅ
+		// å°†sha1åŠ å¯†åçš„å­—ç¬¦ä¸²å¯ä¸signatureå¯¹æ¯”ï¼Œæ ‡è¯†è¯¥è¯·æ±‚æ¥æºäºå¾®ä¿¡
 		return tmpStr != null ? tmpStr.equals(signature.toUpperCase()) : false;
 	}
 
 	/**
-	 * ½«×Ö½ÚÊı×é×ª»»ÎªÊ®Áù½øÖÆ×Ö·û´®
+	 * å°†å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºåå…­è¿›åˆ¶å­—ç¬¦ä¸²
 	 * 
 	 * @param byteArray
 	 * @return
@@ -55,7 +55,7 @@ public class SignUtil {
 	}
 
 	/**
-	 * ½«×Ö½Ú×ª»»ÎªÊ®Áù½øÖÆ×Ö·û´®
+	 * å°†å­—èŠ‚è½¬æ¢ä¸ºåå…­è¿›åˆ¶å­—ç¬¦ä¸²
 	 * 
 	 * @param mByte
 	 * @return

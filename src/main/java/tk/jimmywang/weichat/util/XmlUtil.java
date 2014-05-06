@@ -27,7 +27,7 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 public class XmlUtil {
 
 	/** 
-     * ½âÎöÎ¢ĞÅ·¢À´µÄÇëÇó£¨XML£© 
+     * è§£æå¾®ä¿¡å‘æ¥çš„è¯·æ±‚ï¼ˆXMLï¼‰ 
      *  
      * @param request 
      * @return 
@@ -35,24 +35,24 @@ public class XmlUtil {
      */  
     @SuppressWarnings("unchecked")  
     public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {  
-        // ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ  
+        // å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­  
         Map<String, String> map = new HashMap<String, String>();  
   
-        // ´ÓrequestÖĞÈ¡µÃÊäÈëÁ÷  
+        // ä»requestä¸­å–å¾—è¾“å…¥æµ  
         InputStream inputStream = request.getInputStream();  
-        // ¶ÁÈ¡ÊäÈëÁ÷  
+        // è¯»å–è¾“å…¥æµ  
         SAXReader reader = new SAXReader();  
         Document document = reader.read(inputStream);  
-        // µÃµ½xml¸ùÔªËØ  
+        // å¾—åˆ°xmlæ ¹å…ƒç´   
         Element root = document.getRootElement();  
-        // µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã  
+        // å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹  
         List<Element> elementList = root.elements();  
   
-        // ±éÀúËùÓĞ×Ó½Úµã  
+        // éå†æ‰€æœ‰å­èŠ‚ç‚¹  
         for (Element e : elementList)  
             map.put(e.getName(), e.getText());  
   
-        // ÊÍ·Å×ÊÔ´  
+        // é‡Šæ”¾èµ„æº  
         inputStream.close();  
         inputStream = null;  
   
@@ -60,9 +60,9 @@ public class XmlUtil {
     }  
   
     /** 
-     * ÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml 
+     * æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
      *  
-     * @param textMessage ÎÄ±¾ÏûÏ¢¶ÔÏó 
+     * @param textMessage æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡ 
      * @return xml 
      */  
     public static String textMessageToXml(TextMessage textMessage) {  
@@ -71,9 +71,9 @@ public class XmlUtil {
     }  
   
     /** 
-     * ÒôÀÖÏûÏ¢¶ÔÏó×ª»»³Éxml 
+     * éŸ³ä¹æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
      *  
-     * @param musicMessage ÒôÀÖÏûÏ¢¶ÔÏó 
+     * @param musicMessage éŸ³ä¹æ¶ˆæ¯å¯¹è±¡ 
      * @return xml 
      */  
     public static String musicMessageToXml(MusicMessage musicMessage) {  
@@ -82,9 +82,9 @@ public class XmlUtil {
     }  
     
     /** 
-     *Í¼Æ¬ÏûÏ¢¶ÔÏó×ª»»³Éxml 
+     *å›¾ç‰‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
      *  
-     * @param ImagerMessage ÒôÀÖÏûÏ¢¶ÔÏó 
+     * @param ImagerMessage éŸ³ä¹æ¶ˆæ¯å¯¹è±¡ 
      * @return xml 
      */  
     public static String imageMessageToXml(ImageMessage imageMessage) {  
@@ -93,9 +93,9 @@ public class XmlUtil {
     }  
   
     /** 
-     * Í¼ÎÄÏûÏ¢¶ÔÏó×ª»»³Éxml 
+     * å›¾æ–‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
      *  
-     * @param newsMessage Í¼ÎÄÏûÏ¢¶ÔÏó 
+     * @param newsMessage å›¾æ–‡æ¶ˆæ¯å¯¹è±¡ 
      * @return xml 
      */  
     public static String newsMessageToXml(NewsMessage newsMessage) {  
@@ -106,14 +106,14 @@ public class XmlUtil {
   
     /** 
      * 
-     * À©Õ¹xstream£¬Ê¹ÆäÖ§³ÖCDATA¿é 
+     * æ‰©å±•xstreamï¼Œä½¿å…¶æ”¯æŒCDATAå— 
      *  
      * @date 2013-05-19 
      */  
     private static XStream xstream = new XStream(new XppDriver() {  
         public HierarchicalStreamWriter createWriter(Writer out) {  
             return new PrettyPrintWriter(out) {  
-                // ¶ÔËùÓĞxml½ÚµãµÄ×ª»»¶¼Ôö¼ÓCDATA±ê¼Ç  
+                // å¯¹æ‰€æœ‰xmlèŠ‚ç‚¹çš„è½¬æ¢éƒ½å¢åŠ CDATAæ ‡è®°  
                 boolean cdata = true;  
   
                 public void startNode(String name, @SuppressWarnings("rawtypes") Class clazz) {  
