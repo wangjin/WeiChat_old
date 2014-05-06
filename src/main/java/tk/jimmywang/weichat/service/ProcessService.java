@@ -18,30 +18,30 @@ public class ProcessService {
 		String respMessage = null;
 		try {
 
-			// xmlÇëÇó½âÎö
+			// xmlè¯·æ±‚è§£æ
 			Map<String, String> requestMap = XmlUtil.parseXml(request);
 			// String content = requestMap.get("Content");
-			// ·¢ËÍ·½ÕÊºÅ£¨open_id£©
+			// å‘é€æ–¹å¸å·ï¼ˆopen_idï¼‰
 			String fromUserName = requestMap.get("FromUserName");
-			// ¹«ÖÚÕÊºÅ
+			// å…¬ä¼—å¸å·
 			String toUserName = requestMap.get("ToUserName");
-			// ÏûÏ¢ÀàĞÍ
+			// æ¶ˆæ¯ç±»å‹
 			String msgType = requestMap.get("MsgType");
 
-			// ÎÄ±¾ÏûÏ¢
+			// æ–‡æœ¬æ¶ˆæ¯
 			if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_TEXT)) {
-				// // »Ø¸´ÎÄ±¾ÏûÏ¢
+				// // å›å¤æ–‡æœ¬æ¶ˆæ¯
 				// TextMessage textMessage = new TextMessage();
-				// //¿ª·¢Õß
+				// //å¼€å‘è€…
 				// textMessage.setToUserName(fromUserName);
-				// //·¢ËÍ·½ÕÊºÅ£¨Ò»¸öOpenID£©
+				// //å‘é€æ–¹å¸å·ï¼ˆä¸€ä¸ªOpenIDï¼‰
 				// textMessage.setFromUserName(toUserName);
 				// textMessage.setCreateTime(new Date().getTime());
 				// textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
-				// textMessage.setContent("ÄãºÃ£¡");
+				// textMessage.setContent("ä½ å¥½ï¼");
 				// textMessage.setFuncFlag(0);
 				// respMessage = MessageUtil.textMessageToXml(textMessage);
-				// ´´½¨Í¼ÎÄÏûÏ¢
+				// åˆ›å»ºå›¾æ–‡æ¶ˆæ¯
 				NewsMessage newsMessage = new NewsMessage();
 				newsMessage.setToUserName(fromUserName);
 				newsMessage.setFromUserName(toUserName);
@@ -51,20 +51,20 @@ public class ProcessService {
 
 				List<Article> articleList = new ArrayList<Article>();
 				Article article1 = new Article();
-				article1.setTitle("¿ª·¢²âÊÔ");
-				article1.setDescription("ÕâÊÇÒ»¸ö¿ª·¢²âÊÔ");
+				article1.setTitle("å¼€å‘æµ‹è¯•");
+				article1.setDescription("è¿™æ˜¯ä¸€ä¸ªå¼€å‘æµ‹è¯•");
 				article1.setImageUrl("http://weichat.wangjinzone.tk/resources/images/car.jpg");
 				article1.setUrl("http://weichat.wangjinzone.tk/");
 				// article1.setUrl("http://user.qzone.qq.com/652810758?ptlang=2052");
 
 				Article article2 = new Article();
-				article2.setTitle("µÚ2Æª\nÎ¢ĞÅ¹«ÖÚÕÊºÅµÄÀàĞÍ");
+				article2.setTitle("ç¬¬2ç¯‡\nå¾®ä¿¡å…¬ä¼—å¸å·çš„ç±»å‹");
 				article2.setDescription("");
 				article2.setImageUrl("http://202.102.83.54/4sWeixin/img/pic/xtp.png");
 				article2.setUrl("http://www.ibrdp.com/WeiXinTest/Driving!drivingList.action");
 
 				// Article article3 = new Article();
-				// article3.setTitle("µÚ3Æª\n¿ª·¢Ä£Ê½ÆôÓÃ¼°½Ó¿ÚÅäÖÃ");
+				// article3.setTitle("ç¬¬3ç¯‡\nå¼€å‘æ¨¡å¼å¯ç”¨åŠæ¥å£é…ç½®");
 				// article3.setDescription("");
 				// article3.setPicUrl("http://avatar.csdn.net/1/4/A/1_lyq8479.jpg");
 				// article3.setUrl("http://blog.csdn.net/lyq8479/article/details/8944988");
@@ -76,9 +76,9 @@ public class ProcessService {
 				newsMessage.setArticles(articleList);
 				respMessage = XmlUtil.newsMessageToXml(newsMessage);
 			}
-			// Í¼Æ¬ÏûÏ¢
+			// å›¾ç‰‡æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_IMAGE)) {
-				respMessage = "Äú·¢ËÍµÄÊÇÍ¼Æ¬ÏûÏ¢£¡";
+				respMessage = "æ‚¨å‘é€çš„æ˜¯å›¾ç‰‡æ¶ˆæ¯ï¼";
 				// ImageMessage imageMessage=new ImageMessage();
 				// imageMessage.setToUserName(fromUserName);
 				// imageMessage.setFromUserName(toUserName);
@@ -89,31 +89,31 @@ public class ProcessService {
 				// respMessage = MessageUtil.imageMessageToXml(imageMessage);
 
 			}
-			// µØÀíÎ»ÖÃÏûÏ¢
+			// åœ°ç†ä½ç½®æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_LOCATION)) {
-				respMessage = "Äú·¢ËÍµÄÊÇµØÀíÎ»ÖÃÏûÏ¢£¡";
+				respMessage = "æ‚¨å‘é€çš„æ˜¯åœ°ç†ä½ç½®æ¶ˆæ¯ï¼";
 			}
-			// Á´½ÓÏûÏ¢
+			// é“¾æ¥æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_LINK)) {
-				respMessage = "Äú·¢ËÍµÄÊÇÁ´½ÓÏûÏ¢£¡";
+				respMessage = "æ‚¨å‘é€çš„æ˜¯é“¾æ¥æ¶ˆæ¯ï¼";
 			}
-			// ÒôÆµÏûÏ¢
+			// éŸ³é¢‘æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_VOICE)) {
-				respMessage = "Äú·¢ËÍµÄÊÇÒôÆµÏûÏ¢£¡";
+				respMessage = "æ‚¨å‘é€çš„æ˜¯éŸ³é¢‘æ¶ˆæ¯ï¼";
 			}
-			// Í¼ÎÄÏûÏ¢
+			// å›¾æ–‡æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_NEWS)) {
-				respMessage = "Äú·¢ËÍµÄÊÇÍ¼ÎÄÏûÏ¢£¡";
+				respMessage = "æ‚¨å‘é€çš„æ˜¯å›¾æ–‡æ¶ˆæ¯ï¼";
 
 			}
-			// ÊÂ¼şÍÆËÍ
+			// äº‹ä»¶æ¨é€
 			else if (msgType.equals(MessageUtil.REQUEST_MESSAGE_TYPE_EVENT)) {
-				// ÊÂ¼şÀàĞÍ
+				// äº‹ä»¶ç±»å‹
 				String eventType = requestMap.get("Event");
-				// ¶©ÔÄ
+				// è®¢é˜…
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
 
-					// ´´½¨Í¼ÎÄÏûÏ¢
+					// åˆ›å»ºå›¾æ–‡æ¶ˆæ¯
 					NewsMessage newsMessage = new NewsMessage();
 					newsMessage.setToUserName(fromUserName);
 					newsMessage.setFromUserName(toUserName);
@@ -123,19 +123,19 @@ public class ProcessService {
 
 					List<Article> articleList = new ArrayList<Article>();
 					Article article1 = new Article();
-					article1.setTitle("¿ª·¢²âÊÔ");
-					article1.setDescription("ÕâÊÇÒ»¸ö¿ª·¢²âÊÔ");
+					article1.setTitle("å¼€å‘æµ‹è¯•");
+					article1.setDescription("è¿™æ˜¯ä¸€ä¸ªå¼€å‘æµ‹è¯•");
 					article1.setImageUrl("http://weichat.wangjinzone.tk/resources/images/car.jpg");
 					article1.setUrl("http://weichat.wangjinzone.tk/");
 
 					Article article2 = new Article();
-					article2.setTitle("µÚ2Æª\nÎ¢ĞÅ¹«ÖÚÕÊºÅµÄÀàĞÍ");
+					article2.setTitle("ç¬¬2ç¯‡\nå¾®ä¿¡å…¬ä¼—å¸å·çš„ç±»å‹");
 					article2.setDescription("");
 					article2.setImageUrl("http://202.102.83.54/4sWeixin/img/pic/xtp.png");
 					article2.setUrl("http://www.ibrdp.com/WeiXinTest/Driving!drivingList.action");
 
 					// Article article3 = new Article();
-					// article3.setTitle("µÚ3Æª\n¿ª·¢Ä£Ê½ÆôÓÃ¼°½Ó¿ÚÅäÖÃ");
+					// article3.setTitle("ç¬¬3ç¯‡\nå¼€å‘æ¨¡å¼å¯ç”¨åŠæ¥å£é…ç½®");
 					// article3.setDescription("");
 					// article3.setPicUrl("http://avatar.csdn.net/1/4/A/1_lyq8479.jpg");
 					// article3.setUrl("http://blog.csdn.net/lyq8479/article/details/8944988");
@@ -147,13 +147,13 @@ public class ProcessService {
 					newsMessage.setArticles(articleList);
 					respMessage = XmlUtil.newsMessageToXml(newsMessage);
 				}
-				// È¡Ïû¶©ÔÄ
+				// å–æ¶ˆè®¢é˜…
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
-					// TODO È¡Ïû¶©ÔÄºóÓÃ»§ÔÙÊÕ²»µ½¹«ÖÚºÅ·¢ËÍµÄÏûÏ¢£¬Òò´Ë²»ĞèÒª»Ø¸´ÏûÏ¢
+					// TODO å–æ¶ˆè®¢é˜…åç”¨æˆ·å†æ”¶ä¸åˆ°å…¬ä¼—å·å‘é€çš„æ¶ˆæ¯ï¼Œå› æ­¤ä¸éœ€è¦å›å¤æ¶ˆæ¯
 				}
-				// ×Ô¶¨Òå²Ëµ¥µã»÷ÊÂ¼ş
+				// è‡ªå®šä¹‰èœå•ç‚¹å‡»äº‹ä»¶
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
-					// TODO ×Ô¶¨Òå²Ëµ¥È¨Ã»ÓĞ¿ª·Å£¬Ôİ²»´¦Àí¸ÃÀàÏûÏ¢
+					// TODO è‡ªå®šä¹‰èœå•æƒæ²¡æœ‰å¼€æ”¾ï¼Œæš‚ä¸å¤„ç†è¯¥ç±»æ¶ˆæ¯
 
 				}
 			}
