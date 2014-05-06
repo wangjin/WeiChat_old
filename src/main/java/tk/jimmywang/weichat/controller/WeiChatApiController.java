@@ -51,6 +51,7 @@ public class WeiChatApiController {
 	@RequestMapping(value = "/weichatapi", method = RequestMethod.POST)
 	public void APIPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
+		logger.info("Access weichatapi with POST method!!!");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer = response.getWriter();
