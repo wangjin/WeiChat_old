@@ -28,8 +28,7 @@ public class WeiChatApiController {
 	private Logger logger = LoggerFactory.getLogger(WeiChatApiController.class);
 
 	@RequestMapping(value = "/weichatapi", method = RequestMethod.GET)
-	public void APIGet(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public void APIGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
 		String nonce = request.getParameter("nonce");
@@ -45,18 +44,17 @@ public class WeiChatApiController {
 			writer.print(echostr);
 		}
 		writer.close();
-		writer = null;
 	}
 
 	@RequestMapping(value = "/weichatapi", method = RequestMethod.POST)
-	public void APIPost(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public void APIPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		logger.info("Access weichatapi with POST method!!!");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer = response.getWriter();
-		writer.print(ProcessService.processRequest(request));
+		String processRequest = ProcessService.processRequest(request);
+		logger.info("processRequest:" + processRequest);
+		writer.print(processRequest);
 		writer.close();
-		writer = null;
 	}
 }
